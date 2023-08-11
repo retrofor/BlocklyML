@@ -2117,11 +2117,10 @@ def dashboard_app(df, dash_app, plotly_config):
 
 def create_data_table(df):
     """Create Dash datatable from Pandas DataFrame."""
-    table = dash_table.DataTable(
+    return dash_table.DataTable(
         id="database-table",
         columns=[{"name": i, "id": i} for i in df.columns],
         data=df.to_dict("records"),
         style_cell={"textAlign": "center"},
         page_size=300,
     )
-    return table

@@ -13,9 +13,9 @@ def dataframe_visualizer(code_imdict, dash_app):
     codedict = dict(code_imdict)
     list_dataframe_names = []
 
-    for code in codedict.keys():
+    replace_str = ""
+    for code in codedict:
         loc = {}
-        replace_str = ""
         command = "var = " + code.replace('"', "'") + replace_str
         exec(command, globals(), loc)
         dash_app = dashboard_app(loc["var"], dash_app, {})
